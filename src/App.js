@@ -10,10 +10,11 @@ function App() {
   const [url,setUrl] = useState("")
   
   const responseGoogle = response =>{
+    console.log(response);
     setName(response.profileObj.name)
     setEmail(response.profileObj.email)
     setUrl(response.profileObj.imageUrl)
-    console.log(response);
+    
     
   }
   return (
@@ -21,7 +22,7 @@ function App() {
       <h1>Login with google</h1>
       <h2>Welcome: {name}</h2>
       <h2>Email: {email}</h2>
-      <img src={url} alt={name} />
+      <img src={url} alt={name} /><br></br>
       <GoogleLogin
     clientId="643781148469-ir74daa2gro26in9jabs5m6l477onsgk.apps.googleusercontent.com"
     buttonText="Login"
@@ -29,6 +30,9 @@ function App() {
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
+  <br />
+  <br />
+  <br />
     <Facebook />
     </div>
   );
